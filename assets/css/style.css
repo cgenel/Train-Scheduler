@@ -1,8 +1,22 @@
 .jumbotron {
   float: middle;
   text-align: center;
-  background-color: blue;
+  background-color: #008CBA;
   color: white;
   width: 80%;
   margin: 0 0 10px 50px;
+  border-radius: 10px;
 }
+
+.trainCard {
+  width: 80%;
+  margin: 0 0 10px 50px;
+  border: solid;
+  border-color: #008CBA;
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: #008CBA;
+  color: white;
+}  
