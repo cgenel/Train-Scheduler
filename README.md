@@ -8,12 +8,10 @@
 - style.css
 
 ## General Info
-This is a train scheduler application that uses Firebase to host arrival and departure data. This website provides up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.
+This is a train scheduler application that uses Firebase to host arrival and departure data. This website provides up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station. The user will add a new train to the schedule by inputting the 'train name', 'destination', the trains first 'departure time', and the trains 'frequency' in minutes. Once the user presses the submit button the data will be collected and stored into a real-time database using firebase and then the data will be collected and transferred back to the app and the new train data will be displayed into the Train Schedule table.
 
 To-do- list:
-* Need to finish all of the javascript
-* I have created a Firebase project for hw but need to finish incorporating it into the application
-* I need to get the train information to display in the empty Current Train Schedule section
+* App is functioning properly, however, I am recieving an Error: FIREBASE FATAL ERROR: failed to register the database service and am unsure what that is
 
-##Status
+## Status
 Project is: _in progress_
