@@ -21,8 +21,9 @@ $("#submitBtn").on("click", function (event) {
   // grab user inputs
   var trainName = $("#trainName").val().trim();
   var destination = $("#destination").val().trim();
-  var firstTrain = $("#firstTrainTime").val().trim();
   var frequency = $("#frequency").val().trim();
+  // turn this input into a time-variable with moment.js
+  var firstTrain = moment($("#firstTrainTime").val().trim(),"HH:mm").subtract(10,"years").format("X");
 
   // local object for holding train data temporarily
   var newTrain = {
@@ -43,14 +44,27 @@ $("#submitBtn").on("click", function (event) {
   $("#destination").val("");
   $("#firstTrainTime").val("");
   $("#frequency").val("");
+
+  return false;
 });
 
 // collect and store the data from firebase
-trainData.ref().on("child_added", function(snapshot) {
+trainData.ref().on("child_added", function (snapshot) {
 
- // Store everything into a variable.
+  // Store everything into a variable.
   var name = snapshot.val().name;
   var destination = snapshot.val().destination;
-  var frequency= snapshot.val().frequency;
+  var frequency = snapshot.val().frequency;
   var firstTrain = snapshot.val().firstTrain;
+
+  // calculate when the next train will be and how many minutes until the train arrives
+  var remainder = moment().diff(moment.unix(firstTrain), "minutes") % frequency;
+  var minutes = frequency - remainder;
+  var arrival = moment().add(minutes, "m").format("hh:mm A");
+
+  console.log(remainder);
+  console.log(minutes);
+  console.log(arrival);
+
+
 });
