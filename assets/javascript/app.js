@@ -45,3 +45,12 @@ $("#submitBtn").on("click", function (event) {
   $("#frequency").val("");
 });
 
+// collect and store the data from firebase
+trainData.ref().on("child_added", function(snapshot) {
+
+ // Store everything into a variable.
+  var name = snapshot.val().name;
+  var destination = snapshot.val().destination;
+  var frequency= snapshot.val().frequency;
+  var firstTrain = snapshot.val().firstTrain;
+});
