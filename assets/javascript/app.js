@@ -37,5 +37,11 @@ $("#submitBtn").on("click", function (event) {
   console.log(newTrain.name);
 
   alert("New Train Added!");
+
+  // clear the input-text-boxes after the user submits a new train
+  $("#trainName").val("");
+  $("#destination").val("");
+  $("#firstTrainTime").val("");
+  $("#frequency").val("");
 });
 
