@@ -23,7 +23,7 @@ $("#submitBtn").on("click", function (event) {
   var destination = $("#destination").val().trim();
   var frequency = $("#frequency").val().trim();
   // turn this input into a time-variable with moment.js
-  var firstTrain = moment($("#firstTrainTime").val().trim(),"HH:mm").subtract(10,"years").format("X");
+  var firstTrain = moment($("#firstTrainTime").val().trim(), "HH:mm").subtract(10, "years").format("X");
 
   // local object for holding train data temporarily
   var newTrain = {
@@ -66,5 +66,8 @@ trainData.ref().on("child_added", function (snapshot) {
   console.log(minutes);
   console.log(arrival);
 
-
+  // display the data from the database into the add-train table on the html
+  // reference the table body append the data to each column
+  $("#train-table > tBody").append("<tr><td>" + name + "</td> <td>" + destination + 
+    "</td> <td>" + frequency + "</td> <td>" + arrival + "</td> <td>" + minutes + "</td> </tr>");
 });
